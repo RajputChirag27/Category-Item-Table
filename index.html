@@ -54,12 +54,12 @@
                         <form action="#" id="categoryForm" data-parsley-validate>
                             <div class="form-floating">
                                 <input type="text" name="categoryName" id="categoryName" class="form-control mb-3"
-                                    placeholder="Enter Category Name here" data-parsley-required="true" pattern="[A-Za-z]+">
+                                    placeholder="Enter Category Name here" data-parsley-required="true" pattern="[a-zA-Z\s]+">
                                 <label for="categoryName">Category Name:</label>
                             </div>
                             <div class="form-floating">
                                 <textarea name="categoryDescription" id="categoryDescription" class="form-control mb-3"
-                                    placeholder="Enter Category Description Here" style="height: 10rem;" pattern="[A-Za-z0-9]+"></textarea>
+                                    placeholder="Enter Category Description Here" style="height: 10rem;" pattern="[a-zA-Z0-9\.\s]+"></textarea>
                                 <label for="categoryDescription">Category Description</label>
                             </div>
 
@@ -130,13 +130,13 @@
                         <form action="#" id="itemForm" data-parsley-validate>
                             <div class="form-floating">
                                 <input type="text" name="itemName" id="itemName" class="form-control mb-3"
-                                    placeholder="Enter Item Name Here" required pattern="[A-Za-z]+">
+                                    placeholder="Enter Item Name Here" required pattern="[a-zA-Z\s]+">
                                 <label for="itemName">Item name</label>
                             </div>
 
                             <div class="form-floating">
                                 <textarea name="itemDescription" id="itemDescription" class="form-control mb-3"
-                                    placeholder="Enter Item Description Here" style="height: 10rem;" pattern="[A-Za-z0-9]+"></textarea>
+                                    placeholder="Enter Item Description Here" style="height: 10rem;" pattern="[A-Za-z0-9\.\s]+"></textarea>
                                 <label for="itemDescription">Item Description</label>
                             </div>
 
