@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <link href="https://cdn.datatables.net/v/bs5/dt-2.0.3/datatables.min.css" rel="stylesheet">
+    <!-- FontAwesome 6.2.0 CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <!-- Modal trigger button -->
+        <div class="d-flex justify-content-center align-items-center mt-5">
+
+            <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
+                Add Category
+            </button>
+        </div>
+
+        <!-- Modal Body -->
+        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+        <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+            role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Category Form
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" id="categoryForm" data-parsley-validate>
+                            <div class="form-floating">
+                                <input type="text" name="categoryName" id="categoryName" class="form-control mb-3"
+                                    placeholder="Enter Category Name here" data-parsley-required="true" pattern="[A-Za-z]+">
+                                <label for="categoryName">Category Name:</label>
+                            </div>
+                            <div class="form-floating">
+                                <textarea name="categoryDescription" id="categoryDescription" class="form-control mb-3"
+                                    placeholder="Enter Category Description Here" style="height: 10rem;" pattern="[A-Za-z0-9]+"></textarea>
+                                <label for="categoryDescription">Category Description</label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-check">
+                                        <div class="">
+                                            <input class="form-check-input" type="radio" name="categoryActive" value="No" id="categoryActive1" />
+                                            <label class="form-check-label" for="categoryActive"> Not Active </label>
+                                        </div>
+                                       <div class="">
+
+                                           <input class="form-check-input" type="radio" name="categoryActive" value="Yes" id="categoryActive" checked />
+                                           <label class="form-check-label" for="categoryActive"> Active </label>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group ">
+                                        <label for="launchDate" class="form-label">Launch Date</label>
+                                        <input type="date" class="form-control-sm" name="launchDate" id="launchDate"  required>
+                                        <div id="launchDateError" class="text-danger hidden">Please Enter a Date Smaller than or Equal to Today</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="categorySave">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional: Place to the bottom of scripts -->
+
+
+        <!-- Modal trigger button -->
+
+        <div class="d-flex justify-content-center align-items-center my-5">
+            <button type="button" class="btn btn-primary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#modalId1">
+                Add Item
+            </button>
+        </div>
+
+        <!-- Modal Body -->
+        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+        <div class="modal fade" id="modalId1" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+            role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">
+                            Item Form
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" id="itemForm" data-parsley-validate>
+                            <div class="form-floating">
+                                <input type="text" name="itemName" id="itemName" class="form-control mb-3"
+                                    placeholder="Enter Item Name Here" required pattern="[A-Za-z]+">
+                                <label for="itemName">Item name</label>
+                            </div>
+
+                            <div class="form-floating">
+                                <textarea name="itemDescription" id="itemDescription" class="form-control mb-3"
+                                    placeholder="Enter Item Description Here" style="height: 10rem;" pattern="[A-Za-z0-9]+"></textarea>
+                                <label for="itemDescription">Item Description</label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Food Type</label>
+                                        <select class="form-select form-select-md" name="foodType" id="foodType" required>
+                                            <option selected value="Veg">Veg</option>
+                                            <option value="Dairy Food">Dairy Food</option>
+                                            <option value="Vegan">Vegan</option>
+                                            <option value="Sea Food">Sea Food</option>
+                                            <option value="Non Veg">Non Veg</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3 form-floating mt-4">
+                                        <input type="number" class="form-control" name="itemPrice" id="itemPrice"
+                                            aria-describedby="helpId" placeholder="" required data-parsley-min="0" />
+                                        <label for="itemPrice" class="form-label">Price</label>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="mb-3 form-floating">
+                                        <input type="number" class="form-control" name="itemDiscount"
+                                            id="itemDiscount" aria-describedby="helpId"
+                                            placeholder="Enter Discount" required data-parsley-range="[0,100]" />
+                                        <label for="itemDiscount" class="form-label">Discount</label>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mb-3 form-floating">
+                                        <input type="number" class="form-control" name="itemGST"
+                                            id="itemGST" aria-describedby="helpId"
+                                            placeholder="Enter GST" required  data-parsley-range="[0,100]"/>
+                                        <label for="itemGST" class="form-label">GST</label>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-check mt-3">
+                                        <div class="">
+                                            <input class="form-check-input" type="radio" name="itemActive" value="false" id="itemActive" />
+                                            <label class="form-check-label" for="itemActive"> Not Active </label>
+                                        </div>
+                                       <div class="">
+
+                                           <input class="form-check-input" type="radio" name="itemActive" value="true" id="itemActive" checked />
+                                           <label class="form-check-label" for="itemActive"> Active </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="category-type-dynamic" class="form-label">Category Type</label>
+                                <select class="form-select form-select-md" name="categoryTypeDynamic" id="categoryTypeDynamic" required>
+                                    <!-- <option selected value="Veg">Veg</option>
+                                    <option value="Dairy Food">Dairy Food</option>
+                                    <option value="Vegan">Vegan</option>
+                                    <option value="Sea Food">Sea Food</option>
+                                    <option value="Non Veg">Non Veg</option> -->
+                                </select>
+                            </div>
+                            
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional: Place to the bottom of scripts -->
+
+        <div class="container">
+
+
+            <table class="table table-dark  table-hover table-striped" id="categoryTable">
+                <thead>
+                    <tr>
+                        <th>+</th>
+                        <th>Category Name</th>
+                        <th>Category Description</th>
+                        <th>Active</th>
+                        <th>New Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+
+        <script src="./Assets/dist/parsley.min.js"></script>
+
+    <script src="https://cdn.datatables.net/v/bs5/dt-2.0.3/datatables.min.js"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+
+
+

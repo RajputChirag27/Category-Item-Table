@@ -1,0 +1,11 @@
+#categoryTable_wrapper > div.row.mt-2.justify-content-md-center{
+    overflow-y: hidden;
+}
+
+.parsley-errors-list{
+    color: red !important;
+}
+
+.hidden{
+    display: none;
+}
